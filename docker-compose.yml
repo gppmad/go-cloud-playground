@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  # DB Instance for local development
+  postgres:
+    image: postgres:16
+    container_name: golang_db
+    environment:
+      POSTGRES_DB: golangdatabase
+      POSTGRES_USER: golang
+      POSTGRES_PASSWORD: golangdb
+    ports:
+      - "5432:5432"
