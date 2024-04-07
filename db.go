@@ -3,14 +3,16 @@ package main
 import (
 	"database/sql"
 	"fmt"
+
+	_ "github.com/lib/pq"
 )
 
-func getDBVersion() {
+func GetDBVersion() {
 
-	urlExample := "postgres://golang:golangdb@localhost:5432/golangdatabase"
+	urlExample := "postgres://golang:golangdb@localhost:5432/postgres?sslmode=disable"
 	db, err := sql.Open("postgres", urlExample)
 	if err != nil {
-		fmt.Println("Connection error with the DB")
+		fmt.Println("Connection error with the DB " + err.Error())
 		return
 	}
 	defer db.Close()

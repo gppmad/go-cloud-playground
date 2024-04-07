@@ -1,5 +1,6 @@
 package main
 
 func main() {
-	getDBVersion()
+	// Complete this exercise, getting the db version.
+	GetDBVersion()
 }
