@@ -1,6 +1,15 @@
 package main
 
+import "fmt"
+
 func main() {
-	// Complete this exercise, getting the db version.
-	GetDBVersion()
+	// Create a test for this.
+	dbVersion, err := GetDBVersion()
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println(dbVersion)
+
+	// Create a simple schema and perform a insert
 }
