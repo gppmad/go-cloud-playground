@@ -1,2 +1,7 @@
 # go-cloud-playground
-Let's use golang with GCloud services
+Repo to learn more about Golang.
+
+To run tests:
+```
+go test -v
+```
