@@ -1,4 +1,4 @@
-package main
+package myutil
 
 import (
 	"reflect"
@@ -14,5 +14,18 @@ func TestGetOrderedNumbers(t *testing.T) {
 	// Check if the result matches the expected output
 	if !reflect.DeepEqual(result, expected) {
 		t.Errorf("getOrderedNumbers(%v) = %v, want %v", numbers, result, expected)
+	}
+}
+
+func TestReadNumbersFromFile(t *testing.T) {
+	resultList := []int{15, 2, 50, 3, 12}
+	result, err := ReadNumbersFromFile("test_numbers.txt")
+
+	if err != nil {
+		t.Fatal("Error reading numbers from file:", err)
+	}
+
+	if !reflect.DeepEqual(result, resultList) {
+		t.Errorf("expected numbers %v, got %v", resultList, result)
 	}
 }
