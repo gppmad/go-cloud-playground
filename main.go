@@ -16,7 +16,7 @@ func main() {
 		fmt.Println(num)
 	}
 
-	// (2) Compare two lists and print ok if are the same
+	// (2) Read a list from the file
 	fileNumbers, err := myutil.ReadNumbersFromFile("numbers.txt")
 	if err != nil {
 		fmt.Println("Error reading from the file:", err)
@@ -24,5 +24,21 @@ func main() {
 	}
 
 	fmt.Println("Numbers read from the file:", fileNumbers)
+
+	// TODO Create the first object People and assign to a dictionary.
+	// create a function that accepts a dictionary and returns
+	// a list of object ordered by age.
+	people := make(map[string]int)
+	people["peppe"] = 32
+	people["turiddu"] = 59
+	people["saro"] = 67
+
+	ages := []int{}
+	for key, value := range people {
+		fmt.Printf("Key %s value %d\n", key, value)
+		ages = append(ages, value)
+		ages = myutil.GetOrderedNumbers(ages)
+	}
+	fmt.Println("Ages read:", ages)
 
 }

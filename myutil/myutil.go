@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// Get a list of int and returns the list ordered in a desc way.
 func GetOrderedNumbers(numbers []int) []int {
 
 	orderedNumbers := numbers
