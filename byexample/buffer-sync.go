@@ -1,21 +1,21 @@
-package main
+// package main
 
-import (
-	"fmt"
-	"time"
-)
+// import (
+// 	"fmt"
+// 	"time"
+// )
 
-func worker(done chan bool) {
-	fmt.Println("Doing something")
-	time.Sleep(time.Second)
-	fmt.Println("done")
+// func worker(done chan bool) {
+// 	fmt.Println("Doing something")
+// 	time.Sleep(time.Second)
+// 	fmt.Println("done")
 
-	done <- true
-}
+// 	done <- true
+// }
 
-/* func main() {
-	doneChannel := make(chan bool, 1)
-	go worker(doneChannel)
-	//<-doneChannel
+// /* func main() {
+// 	doneChannel := make(chan bool, 1)
+// 	go worker(doneChannel)
+// 	//<-doneChannel
 
-} */
+// } */
