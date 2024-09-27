@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+type Person struct {
+	Name    string
+	Surname string
+	Age     int
+}
+
 // Get a list of int and returns the list ordered in a desc way.
 func GetOrderedNumbers(numbers []int) []int {
 
@@ -17,6 +23,17 @@ func GetOrderedNumbers(numbers []int) []int {
 		return numbers[i] > numbers[j]
 	})
 	return orderedNumbers
+}
+
+func GetOrderedPeople(people map[string]Person) []Person {
+	orderedPeople := make([]Person, 0, len(people))
+	for _, person := range people {
+		orderedPeople = append(orderedPeople, person)
+	}
+	sort.Slice(orderedPeople, func(i, j int) bool {
+		return orderedPeople[i].Age > orderedPeople[j].Age
+	})
+	return orderedPeople
 }
 
 func ReadNumbersFromFile(fileName string) ([]int, error) {
