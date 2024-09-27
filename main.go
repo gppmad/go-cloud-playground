@@ -1,25 +1,24 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"os"
 )
 
+// Implement a simple CLI that accepts Name, Surname, Birthdate and save it to a database.
 func main() {
-	// people := make(map[string]myutil.Person)
-	// people["peppe"] = myutil.Person{Name: "Giuseppe", Surname: "Rossi", Age: 32}
-	// people["turiddu"] = myutil.Person{Name: "Salvatore", Surname: "Verdi", Age: 59}
-	// people["saro"] = myutil.Person{Name: "Rosario", Surname: "Bianchi", Age: 67}
+	name := flag.String("name", "", "Your name")
+	surname := flag.String("surname", "", "Your surname")
 
-	// orderedPeople := myutil.GetOrderedPeople(people)
-	// for _, person := range orderedPeople {
-	// 	fmt.Printf("Name: %s, Surname: %s, Age: %d\n", person.Name, person.Surname, person.Age)
-	testString := "Hello, world!"
-	fmt.Println("With PrintLN")
-	for _, char := range testString {
-		fmt.Println(char)
+	// Print usage information if no flags are provided
+	if len(os.Args) == 1 {
+		flag.Usage()
+		os.Exit(1)
 	}
-	fmt.Println("With Printf")
-	for _, char := range testString {
-		fmt.Printf("%c\n", char)
-	}
+
+	flag.Parse()
+	fmt.Println(*name, *surname)
+
+	//GetDBVersion()
 }
