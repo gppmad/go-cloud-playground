@@ -3,6 +3,7 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"time"
 
 	_ "github.com/lib/pq"
 )
@@ -44,4 +45,24 @@ func GetDBVersion() (string, error) {
 
 	return dbversion, nil
 
+}
+
+func AddPerson(db *sql.DB, name string, surname string, birthdate time.Time) (error, bool) {
+	// Prepare a statement to insert data
+	stmt, err := db.Prepare("INSERT INTO People (name, surname, birthdate) VALUES ($1, $2, $3)")
+	if err != nil {
+		fmt.Println("Error preparing statement:", err)
+		return err, false
+	}
+	defer stmt.Close() // Close the statement after use
+
+	// Execute the statement with the provided data
+	_, err = stmt.Exec(name, surname, birthdate)
+	if err != nil {
+		fmt.Println("Error inserting data:", err)
+		return err, false
+	}
+
+	fmt.Println("Person added successfully!")
+	return nil, true // Return no error and success flag
 }
