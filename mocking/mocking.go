@@ -21,6 +21,8 @@ const finalWord string = "go"
 const countDownStart = 3
 
 func Countdown(io io.Writer, s Sleeper) {
+
+	// This print 3,2,1 go!
 	for i := countDownStart; i > 0; i-- {
 		fmt.Fprintln(io, i)
 		s.Sleep()
