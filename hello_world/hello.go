@@ -1,4 +1,4 @@
-package main
+package oldmain
 
 const spanish = "Spanish"
 const french = "French"
