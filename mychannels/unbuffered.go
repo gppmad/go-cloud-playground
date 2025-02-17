@@ -10,7 +10,7 @@ func job(el int) int {
 	return el * 2
 }
 
-func main() {
+func nomain() {
 	syncChannel := make(chan int)
 
 	for i := 1; i <= 10; i++ {
